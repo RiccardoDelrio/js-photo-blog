@@ -28,6 +28,8 @@ axios.get('https://lanciweb.github.io/demo/api/pictures/')
     .then(response => {
         response.data.forEach((element, index) => {
             const { date, title, url } = element;
+            console.log(index);
+
             // console.log(date, title, url);
             cardContainerEl.insertAdjacentHTML('beforeend',
                 `<div class="col-12 col-md-6 col-lg-4 mt-4 card_selector ">
@@ -45,10 +47,10 @@ axios.get('https://lanciweb.github.io/demo/api/pictures/')
 
             card_selectorEl.forEach((element) => {
                 element.addEventListener("click", () => {
-                    index = response.data[index]
+
                     card_popEl.classList.remove("d-none")
                     pop_upEl.innerHTML = `
-                <img src="${index.url}" alt="...">
+                <img src="${url}" alt="...">
                         `
                 })
 
