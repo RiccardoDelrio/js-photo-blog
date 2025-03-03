@@ -77,4 +77,11 @@ body {
 
 
     }
+
+    .card_selector:hover {
+        transition: all 0.3s;
+        transform: scale(1.1) rotate(4deg);
+        z-index: 10;
+
+    }
 }
