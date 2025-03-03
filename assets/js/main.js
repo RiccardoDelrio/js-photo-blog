@@ -3,6 +3,7 @@ const mainEl = document.querySelector(".over")
 const card_selectorEl = document.querySelectorAll(".card_selector")
 const card_popEl = document.querySelector(".card_pop")
 const pop_upEl = document.querySelector(".pop_up")
+const btnEl = document.querySelector(".button_style")
 // fetch('https://lanciweb.github.io/demo/api/pictures/')
 //     .then(response => response.json())
 //     .then(data => {
@@ -57,11 +58,16 @@ axios.get('https://lanciweb.github.io/demo/api/pictures/')
                 card_popEl.classList.remove("d-none");
                 pop_upEl.innerHTML = `
                 <img src="${linkSrc}" alt="...">
+                
             `;
             })
 
 
         });
+        btnEl.addEventListener("click", () => {
+            card_popEl.classList.add("d-none");
+
+        })
     })
     .catch(error => {
         console.error("Error fetching data:", error);
