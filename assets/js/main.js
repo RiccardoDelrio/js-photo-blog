@@ -17,15 +17,15 @@ const cardContainerEl = document.querySelector('.card_container');
 //                     </div>
 //                 </div>`
 //             );
-            
+
 //         });
 //     })
 axios.get('https://lanciweb.github.io/demo/api/pictures/')
     .then(response => {
         response.data.forEach(element => {
             const { date, title, url } = element;
-            console.log(date, title, url); 
-            cardContainerEl.insertAdjacentHTML('beforeend', 
+            console.log(date, title, url);
+            cardContainerEl.insertAdjacentHTML('beforeend',
                 `<div class="col-12 col-md-6 col-lg-4 mt-4 ">
                     <div class="card">
                         <img src="./assets/img/pin.svg" alt="" class="pin">
