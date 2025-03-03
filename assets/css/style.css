@@ -56,6 +56,7 @@ body {
         padding-top: 20px;
         text-align: center;
 
+
         .button_style {
             justify-content: center;
             margin-bottom: 30px;
@@ -63,8 +64,15 @@ body {
             font-size: 1.1rem;
         }
 
-        img {
+        .card {
             max-width: 600px;
+            margin: 0 auto;
+        }
+
+
+
+        img {
+            width: 100%;
         }
 
 

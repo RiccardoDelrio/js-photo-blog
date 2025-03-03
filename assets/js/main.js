@@ -1,4 +1,8 @@
 const cardContainerEl = document.querySelector('.card_container');
+const mainEl = document.querySelector(".over")
+const card_selectorEl = document.querySelectorAll(".card_selector")
+const card_popEl = document.querySelector(".card_pop")
+const pop_upEl = document.querySelector(".pop_up")
 // fetch('https://lanciweb.github.io/demo/api/pictures/')
 //     .then(response => response.json())
 //     .then(data => {
@@ -22,11 +26,11 @@ const cardContainerEl = document.querySelector('.card_container');
 //     })
 axios.get('https://lanciweb.github.io/demo/api/pictures/')
     .then(response => {
-        response.data.forEach(element => {
+        response.data.forEach((element, index) => {
             const { date, title, url } = element;
-            console.log(date, title, url);
+            // console.log(date, title, url);
             cardContainerEl.insertAdjacentHTML('beforeend',
-                `<div class="col-12 col-md-6 col-lg-4 mt-4 ">
+                `<div class="col-12 col-md-6 col-lg-4 mt-4 card_selector ">
                     <div class="card">
                         <img src="./assets/img/pin.svg" alt="" class="pin">
                         <img src="${url}" class="card-img-top img_p p-3" alt="...">
@@ -37,8 +41,24 @@ axios.get('https://lanciweb.github.io/demo/api/pictures/')
                     </div>
                 </div>`
             );
+            const card_selectorEl = document.querySelectorAll(".card_selector")
+
+            card_selectorEl.forEach((element) => {
+                element.addEventListener("click", () => {
+                    index = response.data[index]
+                    card_popEl.classList.remove("d-none")
+                    pop_upEl.innerHTML = `
+                <img src="${index.url}" alt="...">
+                        `
+                })
+
+
+            });
+
+
         });
     })
     .catch(error => {
         console.error("Error fetching data:", error);
     });
+
